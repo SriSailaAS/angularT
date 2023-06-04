@@ -1,0 +1,38 @@
+<p>{{postArray}}</p>
+
+<div *ngIf="objArray.length>0; then pslist else nodata">
+
+</div>
+<ng-template #pslist>
+  <ul>
+    <li *ngFor="let post of objArray;let i=index">
+      {{i}}
+      {{post.postTitle}}
+    
+  <button (click)="delete(i)">delete</button>
+  </li>
+  </ul>
+</ng-template>
+<ng-template #nodata>
+  There is no data 
+</ng-template>
+<button (click)="addnew()">click</button>
+
+
+<div>
+  <button (click)="onClick('step 1')">Step 1</button>
+  <button (click)="onClick('step 2')">Step 2</button>
+  <button (click)="onClick('step 3')">Step 3</button>
+</div>
+
+<div [ngSwitch]="stepForm">
+<div *ngSwitchCase ="'step 1'">step 1 form</div>
+<div *ngSwitchCase ="'step 2'">step 2 form</div>
+<div *ngSwitchCase ="'step 3'">step 3 form</div>
+<div *ngSwitchDefault>Something else</div>
+
+<h1 [ngClass]="{
+  'main':isActive,
+  'text-color':isActive
+}"> Hello </h1>
+</div>

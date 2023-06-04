@@ -1,38 +1,24 @@
-<p>{{postArray}}</p>
-
-<div *ngIf="objArray.length>0; then pslist else nodata">
-
-</div>
-<ng-template #pslist>
-  <ul>
-    <li *ngFor="let post of objArray;let i=index">
-      {{i}}
-      {{post.postTitle}}
-    
-  <button (click)="delete(i)">delete</button>
-  </li>
-  </ul>
-</ng-template>
-<ng-template #nodata>
-  There is no data 
-</ng-template>
-<button (click)="addnew()">click</button>
-
-
 <div>
-  <button (click)="onClick('step 1')">Step 1</button>
-  <button (click)="onClick('step 2')">Step 2</button>
-  <button (click)="onClick('step 3')">Step 3</button>
-</div>
+  <label for ="name">Enter your name</label>
+  <input type="text" [(ngModel)]="username" name="name">
 
-<div [ngSwitch]="stepForm">
-<div *ngSwitchCase ="'step 1'">step 1 form</div>
-<div *ngSwitchCase ="'step 2'">step 2 form</div>
-<div *ngSwitchCase ="'step 3'">step 3 form</div>
-<div *ngSwitchDefault>Something else</div>
+  <br>
+  <label for ="email">Enter your email</label>
+  <input type="email" [(ngModel)]="useremail" name="email">
+  <br>
+  <label for="address">Enter your address</label>
+  <input type="text" [(ngModel)]="useraddress" name="address">
 
-<h1 [ngClass]="{
-  'main':isActive,
-  'text-color':isActive
-}"> Hello </h1>
+  <button (click) ="addnew()">Add now</button>
+
+  <ul>
+
+  <div *ngFor="let person of objArray ; let i=index">
+    <li>{{person.name}} --- {{person.email}}---{{person.address}}
+
+      <button (click)="delete(i)">Delete</button>
+    </li>
+  </div>
+
+  </ul>
 </div>

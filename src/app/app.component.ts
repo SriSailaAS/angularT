@@ -7,27 +7,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  postArray:Array<string>=['post 1','post 2','post 3'];
+  username!:string;
+  useremail!:string;
+  useraddress!:string;
 
   objArray!:Array<any>;
-  stepForm!:string;
-
-  isActive:boolean=true;
   constructor(){
-    this.objArray=[]
-    for(let i=0;i<this.postArray.length; i++){
-      console.log(this.postArray[i])
-    }
+    this.objArray=[];
   }
   addnew(){
-
-    this.objArray.push({id:6,postTitle:'post 5'})
+    this.objArray.push({name:this.username,email:this.useremail,address:this.useraddress})
+    this.username='';
+    this.useremail='';
+    this.useraddress=''
   }
   delete(index:any){
     this.objArray.splice(index,1);
-  }
-  onClick(status:any){
-    this.stepForm=status;
-
   }
 }

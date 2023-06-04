@@ -1,24 +1,20 @@
-<div>
-  <label for ="name">Enter your name</label>
-  <input type="text" [(ngModel)]="username" name="name">
+<h1>{{title | lowercase}}</h1>
 
-  <br>
-  <label for ="email">Enter your email</label>
-  <input type="email" [(ngModel)]="useremail" name="email">
-  <br>
-  <label for="address">Enter your address</label>
-  <input type="text" [(ngModel)]="useraddress" name="address">
+<h2>{{count | number : '1.2-2'}}</h2>
 
-  <button (click) ="addnew()">Add now</button>
+<h1>{{price | currency : "INR":false:'2.2-2'}}</h1>
 
-  <ul>
+<h1>{{today | date : 'shortDate'}}</h1>
 
-  <div *ngFor="let person of objArray ; let i=index">
-    <li>{{person.name}} --- {{person.email}}---{{person.address}}
+<h1>{{postObject | json}}</h1>
 
-      <button (click)="delete(i)">Delete</button>
-    </li>
-  </div>
+<h1>{{7 | percent}}</h1>
 
-  </ul>
-</div>
+<h2>{{postArray | slice :0:2}}</h2>
+
+<h2>{{userdetails.city | appendcli}}</h2>
+
+<p>{{dummyText | summary :20}}</p>
+
+<app-post></app-post>
+<app-postlist></app-postlist>
